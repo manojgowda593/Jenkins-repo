@@ -26,7 +26,7 @@ pipeline {
         stage ("check build") {
             steps {
                 echo "Printing content of Jenkins folder"
-                sh 'ls -l disk/'
+                sh 'ls -l Jenkins/'
             }
         }
     }
