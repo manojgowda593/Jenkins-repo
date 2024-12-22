@@ -12,14 +12,14 @@ pipeline {
         stage ("Build"){
             steps {
                 echo "Building process"
-                sh 'python setup.py sdist'
+                sh 'python3 setup.py sdist'
             }
         }
 
         stage ("Test") {
             steps {
                 echo "Runnig test on code"
-                sh 'python -m unittest discover tests/'
+                sh 'python3 -m unittest discover tests/'
             }
         }
 
