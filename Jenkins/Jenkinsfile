@@ -12,7 +12,8 @@ pipeline {
         stage ("Build"){
             steps {
                 echo "Building process"
-                sh 'python3 setup.py sdist'
+                sh 'pip install bandit'
+                sh 'python3 bandit -r .'
             }
         }
 
