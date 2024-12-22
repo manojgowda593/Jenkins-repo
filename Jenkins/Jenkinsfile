@@ -1,0 +1,31 @@
+pipeline {
+    stages {
+        stage ("Pulling code"){
+            steps {
+                echo "Pulling the code from Github repo"
+                git url:'https://github.com/manojgowda593/Jenkins-repo.git'
+            }
+        }
+
+        stage ("Build"){
+            steps {
+                echo "Building process"
+                sh 'python setup.py sdist'
+            }
+        }
+
+        stage ("Test") {
+            steps {
+                echo "Runnig test on code"
+                sh 'python -m unittest discover tests/'
+            }
+        }
+
+        stage ("check build") {
+            steps {
+                echo "Printing content of Jenkins folder"
+                sh 'ls -l disk/'
+            }
+        }
+    }
+}
